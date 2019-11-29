@@ -1,5 +1,6 @@
 package com.study.servlet;
 
+import com.study.dao.TodoDao;
 import com.study.entity.ToDo;
 import com.study.templater.PageGenerator;
 
@@ -8,25 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class GetAllTodosServlet extends HttpServlet {
 
-    List<ToDo> todoList;
+    TodoDao todoDao = TodoDao.getInstance();
 
-    public GetAllTodosServlet(List<ToDo> todoList) {
-        this.todoList = todoList;
+    public GetAllTodosServlet() {
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Map<String, Object> map = new HashMap<>();
-        map.put("todos", todoList);
         PageGenerator pageGenerator = PageGenerator.instance();
-        String page = pageGenerator.getPage("todos.html", map);
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("todos", todoDao.getAll());
+        String page = pageGenerator.getPage("todos.html", parameters);
 
         resp.getWriter().write(page);
     }

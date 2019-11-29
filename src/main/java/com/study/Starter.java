@@ -12,13 +12,10 @@ import java.util.List;
 
 public class Starter {
     public static void main(String[] args) throws Exception {
-        List<ToDo> todoList = new ArrayList<>();
 
-        todoList.add(new ToDo(1, "Buy phone"));
-        todoList.add(new ToDo(2, "Clean room"));
 
-        GetAllTodosServlet getAllTodosServlet = new GetAllTodosServlet(todoList);
-        AddToDoServlet addToDoServlet = new AddToDoServlet(todoList);
+        GetAllTodosServlet getAllTodosServlet = new GetAllTodosServlet();
+        AddToDoServlet addToDoServlet = new AddToDoServlet();
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(getAllTodosServlet), "/todos");

@@ -1,5 +1,6 @@
 package com.study.servlet;
 
+import com.study.dao.TodoDao;
 import com.study.entity.ToDo;
 import com.study.templater.PageGenerator;
 
@@ -12,10 +13,9 @@ import java.util.List;
 
 public class AddToDoServlet extends HttpServlet {
 
-    List<ToDo> toDoList;
+    TodoDao todoDao = TodoDao.getInstance();
 
-    public AddToDoServlet(List<ToDo> toDoList) {
-        this.toDoList = toDoList;
+    public AddToDoServlet() {
     }
 
     @Override
@@ -30,7 +30,7 @@ public class AddToDoServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("name");
 
-        toDoList.add(new ToDo(id, name));
+        todoDao.add(new ToDo(id, name));
 
         resp.sendRedirect("/todos");
     }
