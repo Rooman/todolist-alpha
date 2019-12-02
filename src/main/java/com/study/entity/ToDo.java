@@ -1,7 +1,10 @@
 package com.study.entity;
 
+import org.springframework.validation.annotation.Validated;
+
 public class ToDo {
     int id;
+    
     String name;
 
     public ToDo(int id, String name) {

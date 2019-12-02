@@ -28,6 +28,10 @@ public class TodoDao {
         todoList.add(toDo);
     }
 
+    public ToDo getById(int id) {
+        return todoList.get(id - 1);
+    }
+
     public List<ToDo> getAll() {
         return todoList;
     }

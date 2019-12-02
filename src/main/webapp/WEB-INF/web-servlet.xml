@@ -13,6 +13,15 @@
 
     <context:component-scan base-package="com.study"/>
 
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="classpath:/templates"/>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="prefix" value=""/>
+        <property name="suffix" value=".html"/>
+    </bean>
+
     <mvc:annotation-driven/>
 
 </beans>
