@@ -2,14 +2,10 @@ package com.study.controller;
 
 import com.study.dao.TodoDao;
 import com.study.entity.ToDo;
-import com.study.templater.PageGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @Controller
 public class TodoController {
