@@ -1,24 +1,13 @@
 <web-app>
 
     <servlet>
-        <servlet-name>todos</servlet-name>
-        <servlet-class>com.study.servlet.GetAllTodosServlet</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>addTodo</servlet-name>
-        <servlet-class>com.study.servlet.AddToDoServlet</servlet-class>
+        <servlet-name>web</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>todos</servlet-name>
-        <url-pattern>/todos</url-pattern>
+        <servlet-name>web</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>addTodo</servlet-name>
-        <url-pattern>/todos/add</url-pattern>
     </servlet-mapping>
 
 </web-app>

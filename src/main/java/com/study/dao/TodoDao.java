@@ -1,10 +1,12 @@
 package com.study.dao;
 
 import com.study.entity.ToDo;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class TodoDao {
     private static TodoDao todoDao = new TodoDao();
 
@@ -21,8 +23,6 @@ public class TodoDao {
     public static TodoDao getInstance() {
         return todoDao;
     }
-
-
 
     public void add(ToDo toDo) {
         todoList.add(toDo);
